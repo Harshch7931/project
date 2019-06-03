@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "789706346186",
+    "firebase_url": "https://mynewproject-25e60.firebaseio.com",
+    "project_id": "mynewproject-25e60",
+    "storage_bucket": "mynewproject-25e60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789706346186:android:48d5b1807db1eb36",
+        "android_client_info": {
+          "package_name": "com.importa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789706346186-gjdj2aieg6cqrb2fr5d35eujgk3qvh6a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaogl178IjBy-GatQDBvEvBgkf8RLQXL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789706346186-gjdj2aieg6cqrb2fr5d35eujgk3qvh6a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

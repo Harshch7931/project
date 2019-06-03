@@ -1,0 +1,118 @@
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  Image,
+  TouchableOpacity
+} from 'react-native';
+import {
+  Body,
+  Card,
+  CardItem,
+  Text,
+  Left
+} from 'native-base';
+import firebase from 'react-native-firebase'
+
+
+class Home extends Component {
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      textAlign: 'center',
+      fontSize: 24
+    },
+  };
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      products: []
+    }
+  }
+  //this is an important function that lets you create new users from their credentials and stores there data on firestore
+  componentDidMount = async () => {
+
+    try {
+      let collection = await firebase.firestore().collection('Products').get();
+      let productArray = collection.docs
+      let products = []
+      for (let productDoc of productArray) {
+        console.warn(productDoc.data()['Caption'])
+        products.push(productDoc.data())
+
+      }
+      
+      this.setState({
+        products: products
+      })
+
+    }
+
+    catch (e) {
+      console.warn(String(e))
+      console.log(e)
+
+    }
+  }
+  render() {
+    const { products } = this.state
+    const productlisting = products.map((value, Index) => {
+      return (
+        <TouchableOpacity onPress={() => {
+          this.props.navigation.navigate('DetailScreen',
+            { pageData: value })
+        }}
+          key={Index}>
+          <Card style={{ padding: 30, paddingLeft: 30, paddingRight: 30 }}
+            key={Index}
+          >
+            <CardItem>
+              <Left>
+                <Body>
+                  <Text style={{ color: 'black', fontSize: 20, textAlign: 'center' }}>{value.Caption}</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image source={{ uri: value.URL }} style={{ height: 200, width: null, flex: 1 }} />
+            </CardItem>
+          </Card>
+        </TouchableOpacity>
+
+      )
+    })
+    return (
+      <View style={{ flex: 1 }}>
+
+        <ScrollView style={{ padding: 10 }}>
+          {
+            productlisting
+          }
+        </ScrollView>
+      </View>
+
+    );
+  }
+}
+export default Home;
+
+
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'pink',
+  }
+
+});
