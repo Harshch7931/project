@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import { createStackNavigator, createAppContainer} from 'react-navigation';
+import { createStackNavigator, createAppContainer,createDrawerNavigator} from 'react-navigation';
 import Login from './Pages/Login'
 import Signup from './Pages/Signup'
 import Profile from './Pages/Profile'

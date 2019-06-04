@@ -9,7 +9,16 @@ import {
 class DetailScreen extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
-            title: navigation.getParam('pageData').Caption
+            title: navigation.getParam('pageData').Caption,
+            headerStyle: {
+                   backgroundColor: 'red',
+                 },
+                 headerTintColor: '#fff',
+                 headerTitleStyle: {
+                   fontWeight: 'bold',
+                   textAlign: 'center',
+                   fontSize: 24
+                 },
         }
     }
     constructor(props) {

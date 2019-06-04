@@ -22,8 +22,6 @@ static navigationOptions = { header: null }
           keyboardType='email-address' />
         <TextInput style={styles.and1} placeholder='Password'
           placeholderTextColor='#bdbdbd' secureTextEntry={true} />
-        
-        /> */}
         <TouchableOpacity style={styles.bottom} onPress={() => this.props.navigation.navigate('Profile')}><Text style={styles.bintext}>Sign Up</Text></TouchableOpacity>
       </View>
     );

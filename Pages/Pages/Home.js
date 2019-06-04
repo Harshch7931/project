@@ -4,30 +4,28 @@ import {
   View,
   ScrollView,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import {
   Body,
   Card,
   CardItem,
   Text,
-  Left
+  Left,
+  Header,
+  Container,
+  Title,
+  Right,
+  Icon,
+  Button
 } from 'native-base';
 import firebase from 'react-native-firebase'
 
 
 class Home extends Component {
   static navigationOptions = {
-    title: 'Home',
-    headerStyle: {
-      backgroundColor: '#f4511e',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-      textAlign: 'center',
-      fontSize: 24
-    },
+    header:null
+    
   };
 
   constructor(props) {
@@ -70,7 +68,7 @@ class Home extends Component {
             { pageData: value })
         }}
           key={Index}>
-          <Card style={{ padding: 30, paddingLeft: 30, paddingRight: 30 }}
+          <Card style={{ padding: 30, paddingLeft: 30, paddingRight: 30,marginTop:10}}
             key={Index}
           >
             <CardItem>
@@ -89,13 +87,26 @@ class Home extends Component {
       )
     })
     return (
-      <View style={{ flex: 1 }}>
-
+      <View style={{flex:1}}>
+       <Container>
+        <Header style={{ backgroundColor: 'orange' }}
+          androidStatusBarColor="#ff6f00">
+          <Left>
+            <Button transparent>
+              <Icon name='menu' />
+            </Button>
+          </Left>
+          <Body style={{flex: 1}}>
+            <Title>Home</Title>
+          </Body>
+          <Right style={{flex: 1}} />
+        </Header>
         <ScrollView style={{ padding: 10 }}>
           {
             productlisting
           }
         </ScrollView>
+      </Container>
       </View>
 
     );
